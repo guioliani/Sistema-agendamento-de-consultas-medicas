@@ -1,5 +1,5 @@
 <?php
-include("include/header.php");
+	require("configs/connection.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,16 +11,52 @@ include("include/header.php");
 </head>
 <body>
 	<div id="cadastrar"><a href="cadastro.php" title="cadastre-se">Cadastre-se &raquo;</a></div>
+	<div id="cadprof"><a href="cadastroprof.php" title="cadastre-se">Cadastre-se para trabalhar &raquo;</a></div>
+
 	<div id="login" class="form bradius">
-		<div class="message"><?php echo $msg;?></div>
+		<div class="message"></div>
 		<div class="logo"></div>
 		<div class="acomodar";>
 			<form action="?acao=logar"method="post">
 				<label for="email">E-mail</label><input id="email" type="text" class="txt bradius" name="email" values=""/>
 				<label for="senha">Senha</label><input id="senha" type="password" class="txt bradius" name="senha" values=""/>
-				<input type="submit" class="sb bradius" value="entrar"/>
+				<input type="submit" class="sb bradius" value="entrar" name="button"/>
 			</form>
 		</div>
 	</div>
 </body>
 </html>
+
+<?php
+	if(isset($_POST["button"])){
+		$email = mysqli_real_escape_string($mysqli, $_POST["email"]);
+		$senha = mysqli_real_escape_string($mysqli, md5($_POST["senha"]));
+
+		if($email == "" || $senha == ""){
+			echo "<script>alert('Preencha todos os campos');</script>";
+			return true;
+		}
+
+		$select = $mysqli->query("SELECT * FROM usuarios WHERE email='$email' AND senha='$senha'");
+		$row = $select->num_rows;
+		$get = $select->fetch_array();
+		$nome =$get['nome'];
+		$perm = $get['nivel'];
+		if($row > 0){
+			if($perm == 1){
+				session_start();
+				$_SESSION["nivel"] = 1;
+			echo "<script>alert('Bem vindo $nome);'</script>";
+			header('Location: templates/nivel1.php');
+		}else{
+				session_start();
+				$_SESSION["nivel"] = 2;
+			echo "<script>alert('Bem vindo $nome);'</script>";
+			header('Location: templates/nivel2.php');
+		}
+
+		}else{
+			echo "<script>alert('Usuario ou Senha incorretos');</script>";
+		}
+	}
+?>

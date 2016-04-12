@@ -56,6 +56,22 @@ require("configs/connection.php");
 
 				<label for="telefone">Telefone</label><input id="telefone" type="text" class="txt bradius" name="telefone"/>
 				<label for="endereco">Endereço</label><input id="endereco" type="text" class="txt bradius" name="endereco"/>
+                <label for="cpf">CPF</label><input id="cpf" type="text" class="txt bradius" name="cpf"/>
+                <label for="numreg">Numero de registro</label><input id="numreg" type="text" class="txt bradius" name="numreg"/>
+                <br>
+
+                <td>Escolha sua profissao:</td>
+                <td><select name="tipoprof" id="tipoprof">
+                    <option>Selecione...</option>
+                    <option value="Medico">Medico</option>
+                    <option value="Enfermeiro">Enfermeiro</option>
+                    <option value="Psicologo">Psicologo</option>
+                    <option value="Fisioterapeuta">Fisioterapeuta</option>
+                    <option value="Nutricionista">Nutricionista</option>
+                </select>
+
+
+                <label for="especializacao">Especialização</label><input id="especializacao" type="text" class="txt bradius" name="especializacao"/>
 				<label for="senha">Senha</label><input id="senha" type="password" class="txt bradius" name="senha"/>
 				<input type="submit" class="sb bradius" value="Cadastrar" name="button"/>
 			</form>
@@ -74,9 +90,14 @@ require("configs/connection.php");
         $estado = mysqli_real_escape_string($mysqli, $_POST['estado']);
         $telefone = mysqli_real_escape_string($mysqli, $_POST['telefone']);
         $endereco = mysqli_real_escape_string($mysqli, $_POST['endereco']);
+        $cpf = mysqli_real_escape_string($mysqli, $_POST['cpf']);
+        $numreg = mysqli_real_escape_string($mysqli, $_POST['numreg']);
+        $tipoprof = mysqli_real_escape_string($mysqli, $_POST['tipoprof']);
+        $especializacao = mysqli_real_escape_string($mysqli, $_POST['especializacao']);
         $senha = mysqli_real_escape_string($mysqli, $_POST['senha']);
 
-        if($nome == "" || $email == "" || $idade == "" || $sexo == "" || $estado == "" || $telefone == "" || $endereco == "" || $senha == "" ){
+        if($nome == "" || $email == "" || $idade == "" || $sexo == "" || $estado == "" || $telefone == "" || $endereco == "" || $cpf == "" || 
+            $numreg == "" || $tipoprof == "" || $especializacao == "" || $senha == "" ){
             echo "<script>alert('Preencha todos os campos');</script>";
             return true;
         }
@@ -85,17 +106,17 @@ require("configs/connection.php");
             
         }
 
-        $select = $mysqli->query("SELECT * FROM usuarios WHERE email='$email'");
+        $select = $mysqli->query("SELECT * FROM medicos WHERE email='$email'");
         if($select){
         $row = $select->num_rows;
         if($row > 0){
             echo "<script>alert('ja existe um usuario cadastrado com esse email');</script>";
         }else{
-            $insert = $mysqli->query("INSERT INTO `usuarios`(`nome`, `email`, `idade`, `sexo`, `estado`, `telefone`, `endereco`, `senha`, `nivel`, `status`) VALUES ('$nome', '$email', '$idade', '$sexo', '$estado', '$telefone', '$endereco', '".md5($senha)."', 1,0 )");
+            $insert = $mysqli->query("INSERT INTO `medicos`(`nome`, `email`, `idade`, `sexo`, `estado`, `telefone`, `endereco`, `cpf`, `numreg`, `tipoprof`, `especializacao`, `senha`, `nivel`, `status`) VALUES ('$nome', '$email', '$idade', '$sexo', '$estado', '$telefone',  '$endereco', '$cpf', '$numreg', '$tipoprof', '$especializacao', '".md5($senha)."', 2,0 )");
             if($insert){
                 echo "<script>alert('usuario registrado com sucesso');</script>";
             }else{
-                echo $mysqli->error;
+                echo $mysqli->error;     
             }
         }
     }else{
