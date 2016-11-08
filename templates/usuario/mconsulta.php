@@ -50,7 +50,7 @@
 		</thead>
 		<tbody>
 			<?php
-				$select = $mysqli->query("SELECT * FROM consulta");
+				$select = $mysqli->query("SELECT * FROM consulta_m");
 				$row = $select->num_rows;
 				if($row){
 					while($get = $select->fetch_array()){
@@ -85,7 +85,7 @@
 				</td>
 
 				<td>
-					<a href="agendar.php ?id=<?=$get["id"]?>">#</a>
+					<a href="agendar.php ?id=<?=$get["id"]?>">Agendar</a>
 					<!--
 					<a href="agendar.php">
 					<input type="submit" class="sb bradius" value="agendar" name="button">

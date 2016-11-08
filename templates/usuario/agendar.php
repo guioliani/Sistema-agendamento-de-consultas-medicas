@@ -16,17 +16,18 @@ require("../../configs/connection.php");
 	<?php
 		if(isset($_GET["id"])){
 			$id = $_GET["id"];
-			$select = $mysqli->query("SELECT * FROM consulta WHERE id='$id'");
+			$select = $mysqli->query("SELECT * FROM consulta_m WHERE id='$id'");
 			$row = $select->num_rows;
 			if($row > 0){
 				$get = $select->fetch_array();
 				?>
+			<div id="agenda">
 				<form action="" method="POST">
-					<label>Dados do profissional</label>
+					<h2>Dados do profissional</h2>					
 					<p>Nome: <?php echo $get["nome"]; ?></p>
 					<p>Numero do registro: <?php echo $get["numreg"]; ?></p>
-						
 				</form>
+			</div>
 		<?php
 			}else{
 				echo "<script>alert('id nao existe')</script>";

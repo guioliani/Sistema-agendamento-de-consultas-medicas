@@ -9,7 +9,7 @@
 		echo "Erro de conexao com o banco de dados";
 		exit();
 	}else{
-		echo "Conectado com sucesso";
+		
 	}
 
 ?>

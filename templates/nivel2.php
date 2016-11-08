@@ -2,7 +2,7 @@
 	require("../configs/connection.php");
 	session_start();
 	require("../configs/protect.php");
-	protegerAdmin();
+	protegerFunc();
 
 	if(isset($_GET["action"]) AND $_GET["action"] == "sair"){
 		session_destroy();

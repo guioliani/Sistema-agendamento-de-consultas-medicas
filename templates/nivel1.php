@@ -2,7 +2,7 @@
 	require("../configs/connection.php");
 	session_start();
 	require("../configs/protect.php");
-	//protegerUser();
+	protegerUser();
 
 	if(isset($_GET["action"]) AND $_GET["action"] == "sair"){
 		session_destroy();
@@ -24,9 +24,9 @@
 			<li id="consulta"><a href="usuario/mconsulta.php">Marcar consulta</a></li>
 			<li id="agenda"><a href="#">Minha agenda</a></li>
 			<li id="favorito"><a href="#">Meus favoritos</a></li>
-			<li id="atcad"><a href="#">Atualizar cadastro</a></li>
+			<li id="atcad"><?php echo "<a href=minha-conta.php?id=".$_SESSION['id'].">Atualizar cadastro</a>" ?></li>
+			<li id="suporte"><a href="cliente.php">Suporte</a></li>
 			<li id="sair"><a href="?action=sair">sair</a></li>
-
 <!--
 			<div id="consulta"><a href="#" title="Consulta">Marcar consulta</a></div>
 			<div id="agenda" class="form bradius"><a href="#" title="agenda">Minha agenda</a></div>

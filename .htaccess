@@ -1,0 +1,44 @@
+#deny xxx.xxx.xxx.xx bloqueia o ip de um usuario
+#Allow from xxx.xxx.xxx.xx permite um ip
+
+
+#bloqueando acesso a sertos arquivos
+Options -Indexes
+
+<FilesMatch "\.(txt|sql|ini)$">
+Deny from all
+</FilesMatch>
+#fim bloqueio
+
+
+
+RewriteEngine ON
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+
+#redireciona se digitar ip vai para ip.php 
+RewriteRule ^ip$ ip.php
+
+
+#protege arquivo htaccess
+<files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</files>
+
+
+#manutecao
+# MAINTENANCE-PAGE REDIRECT
+#<ifModule mod_rewrite.c>
+ # RewriteEngine on
+  #RewriteCond %{REMOTE_ADDR} !^123.456.789.000
+  #RewriteCond %{REMOTE_ADDR} !^123.456.789.000
+  #RewriteCond %{REMOTE_ADDR} !^123.456.789.000
+  #RewriteCond %{REQUEST_URI} !/maintenance.html$ [NC]
+  #RewriteCond %{REQUEST_URI} !.(jpe?g?|png|gif) [NC]
+  #RewriteRule .* /maintenance.html [R=302,L]
+#</ifModule>

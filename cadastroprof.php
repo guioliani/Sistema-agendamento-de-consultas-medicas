@@ -106,13 +106,13 @@ require("configs/connection.php");
             
         }
 
-        $select = $mysqli->query("SELECT * FROM medicos WHERE email='$email'");
+        $select = $mysqli->query("SELECT * FROM usuarios_prof WHERE email='$email'");
         if($select){
         $row = $select->num_rows;
         if($row > 0){
             echo "<script>alert('ja existe um usuario cadastrado com esse email');</script>";
         }else{
-            $insert = $mysqli->query("INSERT INTO `medicos`(`nome`, `email`, `idade`, `sexo`, `estado`, `telefone`, `endereco`, `cpf`, `numreg`, `tipoprof`, `especializacao`, `senha`, `nivel`, `status`) VALUES ('$nome', '$email', '$idade', '$sexo', '$estado', '$telefone',  '$endereco', '$cpf', '$numreg', '$tipoprof', '$especializacao', '".md5($senha)."', 2,0 )");
+            $insert = $mysqli->query("INSERT INTO `usuarios_prof`(`nome`, `email`, `idade`, `sexo`, `estado`, `telefone`, `endereco`, `cpf`, `numreg`, `tipoprof`, `especializacao`, `senha`, `nivel`, `status`) VALUES ('$nome', '$email', '$idade', '$sexo', '$estado', '$telefone',  '$endereco', '$cpf', '$numreg', '$tipoprof', '$especializacao', '".md5($senha)."', 2,0 )");
             if($insert){
                 echo "<script>alert('usuario registrado com sucesso');</script>";
             }else{

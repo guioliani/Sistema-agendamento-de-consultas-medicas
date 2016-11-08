@@ -1,5 +1,6 @@
 <?php
 	require("configs/connection.php");
+	session_start();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -37,9 +38,11 @@
 			return true;
 		}
 
-		$select = $mysqli->query("SELECT * FROM usuarios WHERE email='$email' AND senha='$senha'");
+		$select = $mysqli->query("SELECT * FROM usuarios_n WHERE email='$email' AND senha='$senha'");
 		$row = $select->num_rows;
 		$get = $select->fetch_array();
+		$id =$get['id'];
+		$_SESSION['id'] = $id;
 		$nome =$get['nome'];
 		$perm = $get['nivel'];
 		if($row > 0){
@@ -48,11 +51,16 @@
 				$_SESSION["nivel"] = 1;
 			echo "<script>alert('Bem vindo $nome);'</script>";
 			header('Location: templates/nivel1.php');
-		}else{
+		}elseif($perm == 2){
 				session_start();
 				$_SESSION["nivel"] = 2;
 			echo "<script>alert('Bem vindo $nome);'</script>";
 			header('Location: templates/nivel2.php');
+		}elseif($perm == 3){
+				session_start();
+				$_SESSION["nivel"] = 3;
+			echo "<script>alert('Bem vindo $nome);'</script>";
+			header('Location: sys/admin.php');
 		}
 
 		}else{
