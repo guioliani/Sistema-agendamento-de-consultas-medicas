@@ -12,6 +12,135 @@ a{
 body{
 	font:300 16px oswald;
 }
+
+
+/*css com classes usadas nas paginas nivel 1 e 2*/
+
+
+/*botao agenda*/
+.agenda{
+	border-bottom-left-radius:8px;
+	border-bottom-right-radius:15px;
+	-webkit-border-bottom-left-radius:8px;
+	-webkit-border-bottom-right-radius:15px;
+	-moz-border-radius-bottomleft:8px;
+	-moz-border-radius-bottomright:15px;
+	height:120px;
+	width:150px;
+	top:10px;
+	background:#f1f1f1;
+	text-align:center;
+	position:absolute;
+	cursor:pointer;
+	right:550px;
+	z-index:2;
+}
+
+.agenda a{
+	padding-top:5px;
+	display:block;
+	color:#999;
+	font:400 18px oswald;
+}
+
+.agenda:hover a{
+	color:#fff;
+}
+
+.agenda:hover{
+	background:#678b97;
+	color:#fff;
+	cursor:pointer;
+}
+/*fim botao agenda*/
+
+
+/*botao atualizar cadastro*/
+.atcad{
+	border-bottom-left-radius:8px;
+	border-bottom-right-radius:15px;
+	-webkit-border-bottom-left-radius:8px;
+	-webkit-border-bottom-right-radius:15px;
+	-moz-border-radius-bottomleft:8px;
+	-moz-border-radius-bottomright:15px;
+	height:120px;
+	width:150px;
+	background:#f1f1f1;
+	text-align:center;
+	position:absolute;
+	cursor:pointer;
+	right:550px;
+	top:140px;
+	z-index:2;
+}
+
+.atcad a{
+	padding-top:5px;
+	display:block;
+	color:#999;
+	font:400 18px oswald;
+}
+
+.atcad:hover a{
+	color:#fff;
+}
+
+.atcad:hover{
+	background:#678b97;
+	color:#fff;
+	cursor:pointer;
+}
+
+/*fim botao atualizar cadastro*/
+
+
+/*botao sair*/
+.sair{
+	border-bottom-left-radius:8px;
+	border-bottom-right-radius:15px;
+	-webkit-border-bottom-left-radius:8px;
+	-webkit-border-bottom-right-radius:15px;
+	-moz-border-radius-bottomleft:8px;
+	-moz-border-radius-bottomright:15px;
+	height:120px;
+	width:150px;
+	background:#f1f1f1;
+	text-align:center;
+	position:absolute;
+	cursor:pointer;
+	right:720px;
+	top:280px;
+	z-index:2;
+}
+
+.sair a{
+	padding-top:5px;
+	display:block;
+	color:#999;
+	font:400 18px oswald;
+}
+
+.sair:hover a{
+	color:#fff;
+}
+
+.sair:hover{
+	background:#678b97;
+	color:#fff;
+	cursor:pointer;
+}
+
+/*fim do botao sair*/
+
+
+
+/*________________________________________________________*/
+/*________________________________________________________*/
+/*________________________________________________________*/
+
+
+
+/*css id exclusiva pagina nivel1'usuario normal'*/
 /*botao consulta*/
 #consulta{
 	border-bottom-left-radius:8px;
@@ -50,42 +179,6 @@ body{
 
 /*fim botao consulta*/
 
-/*botao agenda*/
-#agenda{
-	border-bottom-left-radius:8px;
-	border-bottom-right-radius:15px;
-	-webkit-border-bottom-left-radius:8px;
-	-webkit-border-bottom-right-radius:15px;
-	-moz-border-radius-bottomleft:8px;
-	-moz-border-radius-bottomright:15px;
-	height:120px;
-	width:150px;
-	top:10px;
-	background:#f1f1f1;
-	text-align:center;
-	position:absolute;
-	cursor:pointer;
-	right:550px;
-	z-index:2;
-}
-
-#agenda a{
-	padding-top:5px;
-	display:block;
-	color:#999;
-	font:400 18px oswald;
-}
-
-#agenda:hover a{
-	color:#fff;
-}
-
-#agenda:hover{
-	background:#678b97;
-	color:#fff;
-	cursor:pointer;
-}
-/*fim botao agenda*/
 
 /*botao favorito*/
 #favorito{
@@ -124,82 +217,6 @@ body{
 }
 /*fim botao favorito*/
 
-/*botao atualizar cadastro*/
-#atcad{
-	border-bottom-left-radius:8px;
-	border-bottom-right-radius:15px;
-	-webkit-border-bottom-left-radius:8px;
-	-webkit-border-bottom-right-radius:15px;
-	-moz-border-radius-bottomleft:8px;
-	-moz-border-radius-bottomright:15px;
-	height:120px;
-	width:150px;
-	background:#f1f1f1;
-	text-align:center;
-	position:absolute;
-	cursor:pointer;
-	right:550px;
-	top:140px;
-	z-index:2;
-}
-
-#atcad a{
-	padding-top:5px;
-	display:block;
-	color:#999;
-	font:400 18px oswald;
-}
-
-#atcad:hover a{
-	color:#fff;
-}
-
-#atcad:hover{
-	background:#678b97;
-	color:#fff;
-	cursor:pointer;
-}
-
-/*fim botao atualizar cadastro*/
-
-
-/*botao sair*/
-#sair{
-	border-bottom-left-radius:8px;
-	border-bottom-right-radius:15px;
-	-webkit-border-bottom-left-radius:8px;
-	-webkit-border-bottom-right-radius:15px;
-	-moz-border-radius-bottomleft:8px;
-	-moz-border-radius-bottomright:15px;
-	height:120px;
-	width:150px;
-	background:#f1f1f1;
-	text-align:center;
-	position:absolute;
-	cursor:pointer;
-	right:720px;
-	top:280px;
-	z-index:2;
-}
-
-#sair a{
-	padding-top:5px;
-	display:block;
-	color:#999;
-	font:400 18px oswald;
-}
-
-#sair:hover a{
-	color:#fff;
-}
-
-#sair:hover{
-	background:#678b97;
-	color:#fff;
-	cursor:pointer;
-}
-
-/*fim do botao sair*/
 
 /*botao suporte*/
 #suporte{
@@ -237,3 +254,87 @@ body{
 	cursor:pointer;
 }
 /*fim suporte*/
+
+
+
+/*________________________________________________________*/
+/*________________________________________________________*/
+/*________________________________________________________*/
+
+
+/*css id exclusiva pagina nivel2'profissional'*/
+
+/*botao começar atender PAGINA DO PROFISSIONAL*/
+#comecar{
+	border-bottom-left-radius:8px;
+	border-bottom-right-radius:15px;
+	-webkit-border-bottom-left-radius:8px;
+	-webkit-border-bottom-right-radius:15px;
+	-moz-border-radius-bottomleft:8px;
+	-moz-border-radius-bottomright:15px;
+	height:120px;
+	width:150px;
+	background:#f1f1f1;
+	text-align:center;
+	position:absolute;
+	cursor:pointer;
+	right:720px;
+	top:140px;
+	z-index:2;
+}
+
+#comecar a{
+	padding-top:5px;
+	display:block;
+	color:#999;
+	font:400 18px oswald;
+}
+
+#comecar:hover a{
+	color:#fff;
+}
+
+#comecar:hover{
+	background:#678b97;
+	color:#fff;
+	cursor:pointer;
+}
+/*fim comecar*/
+
+
+/*botao ultima consulta*/
+#ultconsulta{
+	border-bottom-left-radius:8px;
+	border-bottom-right-radius:15px;
+	-webkit-border-bottom-left-radius:8px;
+	-webkit-border-bottom-right-radius:15px;
+	-moz-border-radius-bottomleft:8px;
+	-moz-border-radius-bottomright:15px;
+	height:120px;
+	width:150px;
+	top:10px;
+	position:absolute;
+	cursor:pointer;
+	background:#f1f1f1;	
+	text-align:center;
+	right:720px;
+	z-index:2;
+}
+
+#ultconsulta a{
+	padding-top:5px;
+	display:block;
+	color:#999;
+	font:400 18px oswald;
+}
+
+#ultconsulta:hover a{
+	color:#fff;
+}
+
+#ultconsulta:hover{
+	background:#678b97;
+	color:#fff;
+	cursor:pointer;
+}
+/*fim botao ultima consulta*/

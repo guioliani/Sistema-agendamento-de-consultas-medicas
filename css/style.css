@@ -12,13 +12,45 @@ body{
 
 }
 
+.dados{
+	color: #066;
+	height: 150px;
+	width: 25px;
+}
+
+.dados h2{
+	float: left;
+	font-size: 25px;
+}
+
+/*Termos*/
+.termos{
+	color: #999;
+}
+
+.aviso{
+	padding: 6px;
+	width: 20%;
+	float: left;
+	text-align:center;
+	font-weight: normal;
+	position: absolute;
+	margin-left: 40%;
+	top: 33%;
+}
+
+.aviso.green, .aviso-cad.green{background: #009966; border: 1px solid #093;}
+.aviso.yellow, .aviso-cad.yellow{background: #f2f200; border: 1px solid #cccc00; color: white;}
+.aviso.red, .aviso-cad.red{background: #ff0000; border: 1px solid #cccc00; color: white;}
+
+
 .message{
-	width:90%;
-	padding:2px;
-	color:#666;
-	background:#f1f1f1;
-	margin:0 auto;
+	width: 20%;
+	color: #666;
+	background: #666;
+	margin: 0 auto;
 	text-align: center;
+	margin-left: 40%;
 }
 
 .flash{
@@ -47,7 +79,7 @@ body{
 	text-align:center;
 	position:absolute;
 	right:0;
-	top:0;
+	top: 5px;
 	z-index:2;
 }
 
@@ -76,7 +108,7 @@ body{
 	-webkit-border-bottom-right-radius:15px;
 	-moz-border-radius-bottomleft:8px;
 	-moz-border-radius-bottomright:15px;
-	height:60px;
+	height:70px;
 	width:120px;
 	background:#f1f1f1;
 	text-align:center;
@@ -101,6 +133,43 @@ body{
 	background:#678b97;
 	color:#fff;
 }
+
+
+
+#login-medico{
+	border-bottom-left-radius:8px;
+	border-bottom-right-radius:15px;
+	-webkit-border-bottom-left-radius:8px;
+	-webkit-border-bottom-right-radius:15px;
+	-moz-border-radius-bottomleft:8px;
+	-moz-border-radius-bottomright:15px;
+	height:60px;
+	width:120px;
+	background:#f1f1f1;
+	text-align:center;
+	position:absolute;
+	right:0;
+	top:150px;
+	z-index:2;
+}
+
+#login-medico a{
+	padding-top:5px;
+	display:block;
+	color:#999;
+	font:400 18px oswald;
+}
+
+#login-medico:hover a{
+	color:#fff;
+}
+
+#login-medico:hover{
+	background:#678b97;
+	color:#fff;
+}
+
+
 
 
 /*_________________________________*/
@@ -164,4 +233,25 @@ body{
 	transition:all 0.5s linear;
 	-webkit-transition:all 0.5s linear;
 	-moz-transition:all 0.5s linear;
+}
+
+
+
+/*css pagina minha conta*/
+.dados{
+	font-size: 20px;
+	font-family: arial;
+	color: #696969;
+	position:relative;
+	text-align: center;
+	top: 5px;
+}
+
+.atualizar-dados{
+	width:300px;
+	margin:0 auto;
+	position:relative;
+	top:100px;
+	border:1px solid #f1f1f1;
+	padding:15px;
 }

@@ -11,20 +11,20 @@ require("configs/connection.php");
 </head>
 
 <body>
-	<div id="cadastrar"><a href="index.php" title="faça o login">login &raquo;</a></div>
+	<div id="cadastrar"><a href="login.php" title="faça o login">login &raquo;</a></div>
 	<div id="login" class="form bradius">
 		<div class="message bradius"></div> 
 		<div class="logo"></div>
 		<div class="acomodar";>
-			<form action="" method="POST" onsubmit="return validaCampo(); return false;">
+			<form action="" method="POST">
 				<label for="nome">Nome</label><input id="nome" type="text" class="txt bradius" name="nome"/>
 				<label for="email">E-mail</label><input id="email" type="text" class="txt bradius" name="email"/>
 				<label for="idade">Idade</label><input id="idade" type="text" class="txt bradius" name="idade"/>
-				<input type="radio" name="sexo" values="F">Feminino
+				<input type="radio" name="sexo" values="F" checked="checked">Feminino
 				<input type="radio" name="sexo" values="M">Masculino
                 <br>
 				<td>Estado:</td>
-     			<td><select name="estado" id="estado">
+     			<td><select name="estado" id="estado" class="txt bradius">
        				<option>Selecione...</option>
         			<option value="AC">AC</option>
        				<option value="AL">AL</option>
@@ -61,7 +61,7 @@ require("configs/connection.php");
                 <br>
 
                 <td>Escolha sua profissao:</td>
-                <td><select name="tipoprof" id="tipoprof">
+                <td><select name="tipoprof" id="tipoprof" class="txt bradius">
                     <option>Selecione...</option>
                     <option value="Medico">Medico</option>
                     <option value="Enfermeiro">Enfermeiro</option>
@@ -73,7 +73,10 @@ require("configs/connection.php");
 
                 <label for="especializacao">Especialização</label><input id="especializacao" type="text" class="txt bradius" name="especializacao"/>
 				<label for="senha">Senha</label><input id="senha" type="password" class="txt bradius" name="senha"/>
-				<input type="submit" class="sb bradius" value="Cadastrar" name="button"/>
+				
+                <input type="checkbox" name="termos" onclick="if(document.getElementById('button').disabled==true){document.getElementById('button').disabled=false}"><a class="termos" href="termos.html" target="_blank">Termos e serviços</a>
+                
+                <input type="submit" class="sb bradius" value="Cadastrar" name="button" id="button" disabled="disabled"/>
 			</form>
 		</div>
 	</div>
@@ -98,23 +101,25 @@ require("configs/connection.php");
 
         if($nome == "" || $email == "" || $idade == "" || $sexo == "" || $estado == "" || $telefone == "" || $endereco == "" || $cpf == "" || 
             $numreg == "" || $tipoprof == "" || $especializacao == "" || $senha == "" ){
-            echo "<script>alert('Preencha todos os campos');</script>";
+            echo "<div class='aviso red'>
+                        Preencha todos os campos
+                      </div>";
             return true;
         }
-        if(strlen($senha)<8){
-            echo "<script>alert('a senha precisa ter no minimo 8 caracteres');</script>";
-            
-        }
-
+        
         $select = $mysqli->query("SELECT * FROM usuarios_prof WHERE email='$email'");
         if($select){
         $row = $select->num_rows;
         if($row > 0){
-            echo "<script>alert('ja existe um usuario cadastrado com esse email');</script>";
+            echo "<<div class='aviso yellow'>
+                        Ja existe um usuario cadastrado com esse email
+                      </div>";
         }else{
             $insert = $mysqli->query("INSERT INTO `usuarios_prof`(`nome`, `email`, `idade`, `sexo`, `estado`, `telefone`, `endereco`, `cpf`, `numreg`, `tipoprof`, `especializacao`, `senha`, `nivel`, `status`) VALUES ('$nome', '$email', '$idade', '$sexo', '$estado', '$telefone',  '$endereco', '$cpf', '$numreg', '$tipoprof', '$especializacao', '".md5($senha)."', 2,0 )");
             if($insert){
-                echo "<script>alert('usuario registrado com sucesso');</script>";
+                echo "<div class='aviso green'>
+                        Usuario registrado com sucesso
+                      </div>";
             }else{
                 echo $mysqli->error;     
             }

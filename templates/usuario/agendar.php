@@ -7,7 +7,7 @@ require("../../configs/connection.php");
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 	<title>Profissional</title>
-	<div id="sair" class="form bradius"><a href="mconsulta.php" title="voltar">voltar</a></div>
+	<div class="voltar" class="form bradius"><a href="mconsulta.php" title="voltar">voltar</a></div>
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'/>
 	<link rel="stylesheet" type="text/css" href="../../css/styleuser.css"/>
 </head>
@@ -16,7 +16,7 @@ require("../../configs/connection.php");
 	<?php
 		if(isset($_GET["id"])){
 			$id = $_GET["id"];
-			$select = $mysqli->query("SELECT * FROM consulta_m WHERE id='$id'");
+			$select = $mysqli->query("SELECT * FROM usuarios_prof WHERE id='$id'");
 			$row = $select->num_rows;
 			if($row > 0){
 				$get = $select->fetch_array();

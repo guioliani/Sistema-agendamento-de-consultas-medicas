@@ -6,13 +6,8 @@ require("../../configs/connection.php");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-	<title>Profissional</title>
-	<div class="voltar" class="form bradius"><a href="mconsulta.php" title="voltar">voltar</a></div>
+	<title>Configurar consulta</title>
+	<div class="voltar" class="form bradius"><a href="../nivel2.php" title="voltar">voltar</a></div>
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'/>
-	<link rel="stylesheet" type="text/css" href="../../css/styleuser.css"/>
+	<link rel="stylesheet" type="text/css" href="../../css/styletemplates.css"/>
 </head>
-
-<body>
-	<li id="agenda"><a href="#">agenda</a></li>
-</body>
-</html>
