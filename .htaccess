@@ -14,8 +14,8 @@ Deny from all
 
 RewriteEngine ON
 
-RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
 
 
 
@@ -31,14 +31,4 @@ satisfy all
 </files>
 
 
-#manutecao
-# MAINTENANCE-PAGE REDIRECT
-#<ifModule mod_rewrite.c>
- # RewriteEngine on
-  #RewriteCond %{REMOTE_ADDR} !^123.456.789.000
-  #RewriteCond %{REMOTE_ADDR} !^123.456.789.000
-  #RewriteCond %{REMOTE_ADDR} !^123.456.789.000
-  #RewriteCond %{REQUEST_URI} !/maintenance.html$ [NC]
-  #RewriteCond %{REQUEST_URI} !.(jpe?g?|png|gif) [NC]
-  #RewriteRule .* /maintenance.html [R=302,L]
-#</ifModule>
+

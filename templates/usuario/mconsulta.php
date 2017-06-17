@@ -1,106 +1,77 @@
 <?php
-	require("../../configs/connection.php");
-	require("../../configs/reais.php");
+require("../../configs/protect.php");
+//protegerUser();
+
+
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-	<title>Marcar Consulta</title>
-	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'/>
-	<link rel="stylesheet" type="text/css" href="../../css/styleuser.css"/>
-	<!--
-	<script language="JavaScript" type="text/javascript" src="../../js/jquery.js"></script>
-	<script language="JavaScript" type="text/javascript" src="../../js/configtabela.js"></script>
--->
 
-</head>
-<body>
-<table id="tabela">
-		<thead>
-			<tr>
-				<th>
-					Nome
-				</th>
-
-				<th>
-					Numero do registro
-				</th>
-
-				<th>
-					Tipo profissional
-				</th>
-
-				<th>
-					especialização
-				</th>
-
-				<th>
-					endereço
-				</th>
-
-				<th>
-					telefone
-				</th>
-
-				<th>
-					valor
-				</th>
-			</tr>
-		</thead>
-		<tbody>
+<html>
+	<head>
+		<title></title>
+		<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'/>
+		<link rel="stylesheet" type="text/css" href="../../css/styleuser.css"/>
+		<script type="text/javascript" src="../../js/jquery.js"></script>
+		<script type="text/javascript" src="../../js/busca.js"></script>
+	</head>
+	
+	<body>
+	
+		<div class="formulario">
+		<h2>Digite sua busca</h2>
+			<form>
+				<input type="text" name="campo" class="campo"/>
+			</form>
+		</div>
+		
+		<div class="resultado">
 			<?php
-				$select = $mysqli->query("SELECT * FROM consulta_m");
-				$row = $select->num_rows;
-				if($row){
-					while($get = $select->fetch_array()){
+				include ('../../configs/connection.php');
+				$sql=$mysqli->prepare('SELECT id, id_medico, nome_medico, idade, sexo, endereco_consulta, telefone, estado, especializacao, numregistro, valor, data, hora, status FROM agenda WHERE status = 0 AND data >= NOW()');
+				$sql->execute();
+				$sql->bind_result($id, $id_medico, $nome_medico, $idade, $sexo, $endereco_consulta, $telefone, $estado, $especializacao, $numregistro, $valor, $data, $hora, $status);
+		?>
+			<table>
+				<thead>
+					<tr>
+						<td>Nome</td>
+						<td>idade do medico</td>
+						<td>sexo do medico</td>
+						<td>Numero do registro</td>
+						<td>especialização</td>
+						<td>endereço</td>
+						<td>telefone</td>
+						<td>valor</td>
+						<td>data da consulta</td>
+						<td>horario de atendimento</td>
+
+					</tr>
+				</thead>
+			<tbody>
+				<?php
+					
+				while($sql->fetch()){
 			?>
 			<tr>
-				<td>
-					<?php echo $get["nome"]; ?>
-				</td>
+				<td><?php echo $nome_medico; ?></td>
+				<td><?php echo $idade; ?></td>
+				<td><?php echo $sexo; ?></td>
+				<td><?php echo $numregistro; ?></td>
+				<td><?php echo $especializacao; ?></td>
+				<td><?php echo $endereco_consulta; ?></td>
+				<td><?php echo $telefone; ?></td>
+				<td><?php echo $valor; ?></td>
+				<td><?php echo date('d/m/Y', strtotime($data)); ?></td>
+				<td><?php echo $hora; ?></td>
 
 				<td>
-					<?php echo $get["numreg"]; ?>
-				</td>
-
-				<td>
-					<?php echo $get["tipoprof"]; ?>
-				</td>
-
-				<td>
-					<?php echo $get["especializacao"]; ?>
-				</td>
-
-				<td>
-					<?php echo $get["endereco"]; ?>
-				</td>
-
-				<td>
-					<?php echo $get["telefone"]; ?>
-				</td>
-
-				<td>
-					<?php echo Reais($get["valor"]); ?>
-				</td>
-
-				<td>
-					<a href="agendar.php ?id=<?=$get["id"]?>">Agendar</a>
-					<!--
-					<a href="agendar.php">
-					<input type="submit" class="sb bradius" value="agendar" name="button">
-				</a>-->
+					<a href="agendar.php?id=<?=$id;?>">Agendar</a>
 				</td>
 
 			</tr>
 			<?php
-		}
-			}else{
-					echo "Nenhuma consulta encontrada";
-				}
-
+			}
 			?>
-		</tbody>
-	</table>
-</body>
+			<div style="clear:both;"></div>
+		</div>
+	</body>
 </html>
