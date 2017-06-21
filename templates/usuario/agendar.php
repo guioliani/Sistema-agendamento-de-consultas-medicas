@@ -18,8 +18,9 @@ protegerUser();
 	<div class="voltar" class="form bradius"><a href="mconsulta.php" title="voltar">voltar</a></div>
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'/>
 	<link rel="stylesheet" type="text/css" href="../../css/styleuser.css"/>
-</head>
+	<?php include "../header.php"; ?>
 
+</head>
 <body>
 	<?php
 		if(isset($_GET["id"])){
@@ -71,12 +72,31 @@ protegerUser();
 		$endereco = $get['endereco_consulta'];
 
 		$dataFormatada = date('Y/m/d', strtotime($dataConsulta));
+		$dataBoleto = date('Y/m/d', strtotime("-3 days", strtotime($dataConsulta)));
+		$dataAgora = date('Y/m/d');
+
+		$dataConsultaFormatada = date('Y/m/d', strtotime("+3 days", strtotime($dataConsulta)));
+
+		echo $dataConsulta;
+		echo $dataBoleto;	
+		echo $dataAgora;
+
+		echo $dataConsultaFormatada;
+
+		echo $dataFormatada;
+
 		$select = $mysqli->query("SELECT * FROM consulta_m WHERE id_medico = '$idMedico' AND hora = '$horaConsulta' AND data = '$dataFormatada'");
 		if($select){
 			$row = $select->num_rows;
 			if($row > 0){
 				echo "<script>alert('escolha outro horario')</script>";
+			}elseif($dataFormatada > $dataAgora AND $dataAgora < $dataBoleto){
+				echo "<script>alert('agendo')</script>";
+				header("Location: ../../boleto/boleto_itau.php?id=$id");
 			}else{
+				echo "<script>alert('nao agendo')</script>";
+			}
+			/*else{
 				$insert = $mysqli->query("INSERT INTO `consulta_m`(`id_paciente`, `id_medico`, `nome_medico`, `tipoprof`, `end_consulta`, `nome_paciente`, `telefone_paciente`, `data`, `hora`) VALUES ('$idUsuario', '$idMedico', '$nomeMedico', '$especializacao', '$endereco', '$nomeUsuario', '$telefoneUsuario', '$dataFormatada' ,'$horaConsulta')");
 				if($insert){
 					echo "<script>alert('Consulta agendada')</script>";
@@ -84,11 +104,11 @@ protegerUser();
 				}else{
 					 echo $mysqli->error;
 				}
-			}
+			}*/
 		}else{
 			echo $mysqli->error;
 		}
 	}
 
-
+/*../../boleto/boleto_itau.php?id=<?=$id;?>*/
 ?>

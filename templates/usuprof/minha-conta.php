@@ -16,12 +16,11 @@ require("../../configs/connection.php");
     <title>Login</title>
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" type="text/css" href="../../css/style.css"/>
+    <?php include "../header.php"; ?>
 </head>
 <body>
 <section id="content-wrapper">
 	<section id="content">
-		<h1 class="title-page">Minha conta</h1>
-
 		<div class="atualizar-dados">
             <div class="acomodar";>
                 <form action="" method="POST" enctype="multipart/form-data">

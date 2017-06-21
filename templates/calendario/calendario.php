@@ -18,6 +18,7 @@
 	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 	<title>Calendario</title>
 	<link rel="stylesheet" type="text/css" href="../../css/styletemplates.css"/>
+	<?php include "../header.php"; ?>
 </head>
 
 <body>

@@ -13,6 +13,42 @@ body{
 	font:300 16px oswald;
 }
 
+/*Menu para todas as paginas*/
+.topo-index{
+	height: 50px;
+	width: 100%;
+}
+
+.menu{
+	font-family: sans-serif;
+	list-style:none; 
+	border:1px solid #c0c0c0;  
+	margin-top: 10px;
+	right: 42%;
+	position:absolute;
+	text-align:center;
+	background-color: #3AB09E;
+}
+.menu li{
+	position:relative;
+	float:left;
+	border-right:1px solid #c0c0c0;
+}
+.menu li a{
+	color: #333;
+	text-decoration: none;
+	padding: 5px 10px;
+	display: block;
+}
+.menu li a:hover{
+	background: #333;
+	color: #fff;
+	-moz-box-shadow: 0 3px 10px 0 #ccc;
+	-webkit-box-shadow: 0 3px 10px 0 #ccc;
+	text-shadow: 0px 0px 5px #fff;
+}
+/*fim menu */
+
 
 /*css pagina admin*/
 /*pagina de administração*/
@@ -686,6 +722,7 @@ img {
 #SuportePagina{
 	margin-left: 30%;
 	margin-top: 5%;
+	margin-bottom: 5%;
 }
 
 .form label{

@@ -161,8 +161,8 @@ body{
 }
 .txt{
 	border:none;
-	height:40px;
-	width:250px;
+	height:40px !important;
+	width:250px !important;
 	border:thin solid #f1f1f1;
 }
 .txt:focus{
@@ -221,7 +221,7 @@ body{
 	width:300px;
 	margin:0 auto;
 	position:relative;
-	top: -60px;
+	top: 20px;
 	border:1px solid #f1f1f1;
 	padding:15px;
 }

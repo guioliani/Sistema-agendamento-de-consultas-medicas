@@ -18,6 +18,7 @@
 	<div class="voltar" class="form bradius"><a href="../nivel2.php" title="voltar">voltar</a></div>
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'/>
 	<link rel="stylesheet" type="text/css" href="../../css/styletemplates.css"/>
+	<?php include "../header.php"; ?>
 </head>
 <body>
 	<?php

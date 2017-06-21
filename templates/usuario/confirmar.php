@@ -18,6 +18,7 @@ if(isset($_GET["action"]) AND $_GET["action"] == "sair"){
 	<div class="voltar" class="form bradius"><a href="mconsulta.php" title="voltar">voltar</a></div>
 	<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'/>
 	<link rel="stylesheet" type="text/css" href="../../css/styleuser.css"/>
+	<?php include "../header.php"; ?>
 </head>
 
 <body>

@@ -18,6 +18,7 @@ protegerAdmin();
 
 	<link rel="stylesheet" type="text/css" href="../../css/styleuser.css"/>
 	<link rel="stylesheet" type="text/css" href="../../css/styletemplates.css"/>
+	<?php include "../header.php"; ?>
 </head>
 
 <body>

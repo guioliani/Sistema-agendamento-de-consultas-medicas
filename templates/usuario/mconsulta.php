@@ -12,6 +12,7 @@ require("../../configs/protect.php");
 		<link rel="stylesheet" type="text/css" href="../../css/styleuser.css"/>
 		<script type="text/javascript" src="../../js/jquery.js"></script>
 		<script type="text/javascript" src="../../js/busca.js"></script>
+		<?php include "../header.php"; ?>
 	</head>
 	
 	<body>
